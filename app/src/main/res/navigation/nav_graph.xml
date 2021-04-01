@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeViewPagerFragment">
+
+    <fragment
+        android:id="@+id/homeViewPagerFragment"
+        android:name="raum.muchbeer.flowktx.fragment.HomeViewPagerFragment"
+        android:label="HomeViewPagerFragment"
+        tools:layout="@layout/fragment_view_pager">
+        <action
+            android:id="@+id/action_homeViewPagerFragment_to_plantDetailFragment"
+            app:destination="@id/plantDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantDetailFragment"
+        android:name="raum.muchbeer.flowktx.fragment.PlantDetailFragment"
+        android:label="PlantDetailFragment"
+        tools:layout="@layout/fragment_plant_detail">
+        <action
+            android:id="@+id/action_plantDetailFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <argument
+            android:name="plantId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="raum.muchbeer.flowktx.fragment.GalleryFragment"
+        android:label="GalleryFragment"
+        tools:layout="@layout/fragment_gallery">
+        <argument
+            android:name="plantName"
+            app:argType="string" />
+    </fragment>
+
+
+</navigation>
